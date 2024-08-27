@@ -77,6 +77,3 @@ Expectations:
 6. Code should handle edge cases properly and fail gracefully.
 7. Code should be legible, readable and DRY
 
-From <https://gist.githubusercontent.com/varunkrsharma/38b9c6544b2b74f24740a3ef625f6df9/raw/5c31149d08149258d6e4da29c229829d07846c00/flipfine> 
-
-![image](https://github.com/user-attachments/assets/164063eb-eb24-4c83-96ea-cd1842581775)
