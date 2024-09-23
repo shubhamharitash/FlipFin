@@ -6,7 +6,6 @@ import repository.InMemoryRepository;
 import service.BookingService;
 import service.DoctorService;
 import service.PatientService;
-import service.SlotsService;
 
 import java.io.FileNotFoundException;
 import java.util.Arrays;
@@ -21,7 +20,6 @@ public class Application {
         BookingService bookingService=new BookingService();
         DoctorService doctorService=new DoctorService();
         PatientService patientService=new PatientService();
-        SlotsService slotsService=new SlotsService();
 
             try {
                 Doctor doctor=new Doctor("Curious", Speciality.Cardiologist);
@@ -30,6 +28,9 @@ public class Application {
                 doctorService.regDoctor(doctor);
                 doctorService.regDoctor(doctor1);
                 doctorService.regDoctor(doctor2);
+                System.out.println("------------------------------------");
+
+                doctorService.markDocAvail("Curious", Arrays.asList(new Slots("09:30","10:30")));
 
 
                 doctorService.markDocAvail("Curious", Arrays.asList(new Slots("09:30","10:00"),new Slots("12:30","13:00"),new Slots("16:00","16:30")));
@@ -43,33 +44,35 @@ public class Application {
 
                 patientService.regPatient(new Patient("PatientB"));
                 patientService.regPatient(new Patient("PatientC"));
-
+                System.out.println("------------------------------------");
                doctorService.showAvailByspeciality(Speciality.Cardiologist);
-
+                System.out.println("------------------------------------");
 
                 String bookingId1=bookingService.bookAppointment("PatientA", "Curious", "12:30");
 
-
+                System.out.println("------------------------------------");
 
                 doctorService.showAvailByspeciality(Speciality.Cardiologist);
-
+                System.out.println("------------------------------------");
                 doctorService.getBookingForDoctor("Curious").forEach(
                         doctorBookings -> System.out.println(doctorBookings.toString())
                 );
+                System.out.println("------------------------------------");
                 bookingService.checkPatientsAppointments("PatientA").forEach(
                         patientBooking-> System.out.println(patientBooking.toString())
                 );
                 bookingService.cancelDoctorsBooking(bookingId1);
-
+                System.out.println("------------------------------------");
                 doctorService.showAvailByspeciality(Speciality.Dermatologist);
+                System.out.println("------------------------------------");
                 String bookingId2=bookingService.bookAppointment("PatientB", "Curious", "12:30");
-
+                System.out.println("------------------------------------");
                 String bookingId3 =bookingService.bookAppointment("PatientC", "Curious", "12:30");
 
-
+                System.out.println("------------------------------------");
                 //WaitingList
                 bookingService.cancelDoctorsBooking(bookingId2);
-
+                System.out.println("------------------------------------");
                 System.out.println("Trending Doctor: "+doctorService.trendingDoctor());
 
 

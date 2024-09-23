@@ -57,7 +57,7 @@ public class Bookings {
 
     @Override
     public String toString() {
-        return "Bookings{" +
+        return "\n"+"Bookings{" +
                 "id='" + id + '\'' +
                 ", doctor='" + doctor + '\'' +
                 ", patient='" + patient + '\'' +

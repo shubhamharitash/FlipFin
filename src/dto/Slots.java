@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Slots {
     String startTime;
     String endTime;
-
+    boolean isBooked;
     public String getStartTime() {
         return startTime;
     }
@@ -43,11 +43,11 @@ public class Slots {
         isBooked = booked;
     }
 
-    boolean isBooked;
+
 
     @Override
     public String toString() {
-        return "Slots{" +
+        return "\n"+"Slots{" +
                 "startTime='" + startTime + '\'' +
                 ", endTime='" + endTime + '\'' +
                 ", isBooked=" + isBooked +

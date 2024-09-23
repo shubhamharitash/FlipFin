@@ -60,6 +60,7 @@ public class DoctorService {
 
         for (Doctor doctor:doctorsList) {
             for (Slots slot:doctor.getTimeSlots()) {
+                if (!slot.isBooked())
                 priorityQueue.add(new Pair<>(doctor.getName(),slot.getStartTime()+" - "+slot.getEndTime()));
             }
         }
